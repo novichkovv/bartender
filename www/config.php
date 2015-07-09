@@ -23,7 +23,7 @@ if(count($arr = explode('.', $_SERVER['HTTP_HOST'])) > 2) {
 define('DOMAIN', str_replace($project . '.', '', SITE_DIR));
 define('PROJECT', $project);
 define('P_TEMPLATE_DIR', TEMPLATE_DIR . PROJECT . DS);
-define('DB_NAME', 'engine');
-define('DB_USER', 'root');
-define('DB_PASSWORD', '');
+define('DB_NAME', 'bartender');
+define('DB_USER', 'bartender');
+define('DB_PASSWORD', 'tao5mB%0w~eW');
 define('DB_HOST', 'localhost');

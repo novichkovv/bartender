@@ -14,8 +14,8 @@
                     </div>
                     <div class="form-group">
                         <div class="col-md-10 col-md-offset-1">
-                            <label for="inputPassword1" class="control-label">Password</label>
-                            <input type="password" name="password" class="form-control" placeholder="Password">
+                            <label for="inputPassword1" class="control-label"></label>
+                            <input type="password" name="password" class="form-control transparent-input" placeholder="Password">
                         </div>
                     </div>
                     <div class="form-group">

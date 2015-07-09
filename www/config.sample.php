@@ -16,14 +16,14 @@ if(count($arr = explode('.', $_SERVER['HTTP_HOST'])) > 2) {
     $project = in_array($arr[0], array(
         'www',
         'dev'
-    )) ? 'main' : $arr[0];
+    )) ? 'frontend' : $arr[0];
 } else {
-    $project = 'main';
+    $project = 'frontend';
 }
 define('DOMAIN', str_replace($project . '.', '', SITE_DIR));
 define('PROJECT', $project);
 define('P_TEMPLATE_DIR', TEMPLATE_DIR . PROJECT . DS);
-define('DB_NAME', 'qcop');
+define('DB_NAME', 'bartender');
 define('DB_USER', 'root');
 define('DB_PASSWORD', '');
 define('DB_HOST', 'localhost');

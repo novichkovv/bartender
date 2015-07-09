@@ -1,9 +1,8 @@
 <div style="height: 100px;" class="hidden-xs"></div>
 <div class="row">
     <div class="col-md-4 col-sm-6 col-sm-offset-3 col-md-offset-4">
-        <section class="panel" style="border: 1px solid #39435C;">
-            <header class="panel-heading text-center" style="background-color: #39435C;">
-                <img src="<?php echo SITE_DIR; ?>images/main/qcop_logo_small_wite.png" id="authorization-logo">
+        <section class="panel panel-transparent">
+            <header class="panel-heading text-center">
             </header>
             <div class="panel-body">
                 <form class="form-horizontal" method="post">
@@ -22,9 +21,11 @@
                     <div class="form-group">
                         <div class="col-md-offset-1 col-lg-10">
                             <div class="checkbox">
-                                <label>
-                                    <input type="checkbox" name="remember"> Remember me
-                                </label>
+                                <div class="squaredFour">
+                                    <input type="checkbox" value="None" id="squaredFour" name="check" class="styled-checkbox" checked>
+                                    <label for="squaredFour"></label>
+                                </div>
+                                <span class="styled-checkbox-label">Remember me</span>
                             </div>
                         </div>
                     </div>

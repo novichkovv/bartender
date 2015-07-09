@@ -1,9 +1,6 @@
 <body class="skin-black">
 <!-- header logo: style can be found in header.less -->
 <header class="header">
-<a href="<?php echo SITE_DIR; ?>" class="logo" style="background-color: #fff;">
-<!--    <img src="--><?php //echo SITE_DIR; ?><!--images/main/logo-middle.png" style="height: 45px;" />-->
-</a>
 <!-- Header Navbar: style can be found in header.less -->
 <nav class="navbar navbar-static-top" role="navigation">
 <!-- Sidebar toggle button-->

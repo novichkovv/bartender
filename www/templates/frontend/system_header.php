@@ -7,7 +7,7 @@
     <!-- bootstrap 3.0.2 -->
     <link href="<?php echo SITE_DIR . 'css/'  . PROJECT;  ?>/theme/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <!-- font Awesome -->
-    <link href="<?php echo SITE_DIR . 'css/'  . PROJECT;  ?>/theme/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="<?php echo SITE_DIR; ?>fonts/awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
     <!-- Ionicons -->
     <link href="<?php echo SITE_DIR . 'css/'  . PROJECT;  ?>/theme/ionicons.min.css" rel="stylesheet" type="text/css" />
     <!-- Morris chart -->

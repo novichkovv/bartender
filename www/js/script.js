@@ -4,6 +4,8 @@
 $ = jQuery.noConflict();
 $(document).ready(function()
 {
+    $('body').css("background-color", "#B4D9E5;");
+    $('body').fadeIn(200);
     $("#logout_button").click(function(e)
     {
         e.preventDefault();

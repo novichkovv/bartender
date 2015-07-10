@@ -10,7 +10,7 @@
     <span class="icon-bar"></span>
     <span class="icon-bar"></span>
 </a>
-<a href="#home-2">
+<a id="navbar-home-btn" href="<?php echo SITE_DIR; ?>">
     <i class="fa fa-home"></i>
 </a>
 <div class="navbar-right">

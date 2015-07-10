@@ -82,6 +82,11 @@ section.content {
 .transparent-tabs .tab-bg-dark-navy-blue ul>li>a {
     padding: 16px 30px 23px!important;
 }
+#navbar-home-btn {
+    font-size: 25px;
+    padding: 9px 5px;
+    margin-top: 8px;
+}
 
 
 

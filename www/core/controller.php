@@ -5,7 +5,7 @@
  * Date: 06.03.15
  * Time: 19:47
  */
-abstract class controller
+abstract class controller extends base
 {
     protected $vars = array();
     protected $args;
@@ -21,6 +21,7 @@ abstract class controller
 
     function __construct($controller, $action)
     {
+        registry::set('language', $this->getConfig('language'));
         if(isset($_POST['log_out_btn'])) {
             $this->logOut();
             header('Location: ' . SITE_DIR);
@@ -45,32 +46,32 @@ abstract class controller
     protected function view($template)
     {
         $this->render('log', registry::get('log'));
-        $template_file = ROOT_DIR . 'templates' . DS . PROJECT . DS . $template . '.php';
+        $template_file = ROOT_DIR . 'templates' . DS . registry::get('language') . DS . PROJECT . DS . $template . '.php';
         if(!file_exists($template_file)) {
-            throw new Exception('cannot find template in ' . $template_file);
+            throw new Exception('Can not find template in ' . $template_file);
         }
         $this->render('scripts', $this->scripts);
         foreach($this->vars as $k => $v) {
             $$k = $v;
         }
         if($this->system_header !== false) {
-            require_once(!$this->system_header ? ROOT_DIR . 'templates' . DS . PROJECT . DS . 'system_header.php' : ROOT_DIR . 'templates' . DS . PROJECT . DS . $this->system_header . '.php');
+            require_once(!$this->system_header ? ROOT_DIR . 'templates' . DS . registry::get('language') . DS . PROJECT . DS . 'system_header.php' : ROOT_DIR . 'templates' . DS . PROJECT . DS . $this->system_header . '.php');
         }
 
         if($this->header !== false) {
-            require_once(!$this->header ? ROOT_DIR . 'templates' . DS . PROJECT . DS . 'header.php' : ROOT_DIR . 'templates' . DS . PROJECT . DS . $this->header . '.php');
+            require_once(!$this->header ? ROOT_DIR . 'templates' . DS . registry::get('language') . DS . PROJECT . DS . 'header.php' : ROOT_DIR . 'templates' . DS . PROJECT . DS . $this->header . '.php');
         }
         if($this->sidebar !== false) {
-            require_once(!$this->header ? ROOT_DIR . 'templates' . DS . PROJECT . DS . 'sidebar.php' : ROOT_DIR . 'templates' . DS . PROJECT . DS . $this->sidebar() . '.php');
+            require_once(!$this->header ? ROOT_DIR . 'templates' . DS . registry::get('language') . DS . PROJECT . DS . 'sidebar.php' : ROOT_DIR . 'templates' . DS . PROJECT . DS . $this->sidebar() . '.php');
         }
         if($template_file !== false) {
             require_once($template_file);
         }
         if($this->footer !== false) {
-            require_once(!$this->footer ? ROOT_DIR . 'templates' . DS . PROJECT . DS . 'footer.php' : ROOT_DIR . 'templates' . DS . PROJECT . DS . $this->footer . '.php');
+            require_once(!$this->footer ? ROOT_DIR . 'templates' . DS . registry::get('language') . DS . PROJECT . DS . 'footer.php' : ROOT_DIR . 'templates' . DS . PROJECT . DS . $this->footer . '.php');
         }
         if($this->system_footer !== false) {
-            require_once(!$this->system_footer ? ROOT_DIR . 'templates' . DS . PROJECT . DS . 'system_footer.php' : ROOT_DIR . 'templates' . DS . PROJECT . DS . $this->system_footer . '.php');
+            require_once(!$this->system_footer ? ROOT_DIR . 'templates' . DS . registry::get('language') . DS . PROJECT . DS . 'system_footer.php' : ROOT_DIR . 'templates' . DS . PROJECT . DS . $this->system_footer . '.php');
         }
     }
 
@@ -92,23 +93,6 @@ abstract class controller
     protected function render($key, $value)
     {
         $this->vars[$key] = $value;
-    }
-
-    protected function model($model, $table = null, $db = null, $user = null, $password = null)
-    {
-        $models = registry::get('models');
-        if(!$m = $models[$model][$table]) {
-            $model_file = ROOT_DIR . 'models' . DS . $model . '_model.php';
-            if(file_exists($model_file)) {
-                $model_class = $model . '_model';
-                $m = new $model_class($table ? $table : $model, $db, $user, $password);
-            } else {
-                $m = new default_model($model);
-            }
-            $models[$model][$table];
-            registry::set('models', $models);
-        }
-        return $m;
     }
 
     public function four_o_four() {
@@ -249,18 +233,6 @@ abstract class controller
         registry::remove('log');
         $log[] = print_r($value,1);
         registry::set('log', $log);
-    }
-
-    /**
-     * @param string $file
-     * @param mixed $value
-     * @param string $mode
-     */
-
-    protected function writeLog($file, $value, $mode = 'a+') {
-        $f = fopen(ROOT_DIR . 'logs' . DS . $file . '.log', $mode);
-        fwrite($f, date('Y-m-d H:i:s') . ' - ' .print_r($value, true) . "\n");
-        fclose($f);
     }
 
     /**

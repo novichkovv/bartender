@@ -15,3 +15,11 @@ CREATE TABLE attributes (
   active TINYINT NOT NULL ,
   create_date DATETIME NOT NULL
 )ENGINE = MyISAM;
+
+CREATE TABLE user_config (
+id SERIAL NOT NULL,
+config_key VARCHAR (255) NOT NULL,
+config_value VARCHAR (255) NOT NULL
+)ENGINE=MyISAM;
+
+CREATE UNIQUE INDEX config_key ON user_config (config_key);

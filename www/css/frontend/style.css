@@ -84,9 +84,23 @@ section.content {
 }
 #navbar-home-btn {
     font-size: 25px;
-    padding: 9px 5px;
-    margin-top: 8px;
+    padding: 5px 5px;
+    margin: 4px;
 }
+#navbar-home-btn i {
+    margin: 13px;
+}
+.btn-big {
+    padding: 10px 40px;
+    margin: 30px 70px;
+}
+.btn-info {
+    /*background-color: #59818E !important;*/
+}
+.hr-dark-blue {
+    border: 2px solid #96CAD3;
+}
+
 
 
 

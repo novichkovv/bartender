@@ -78,7 +78,7 @@ abstract class controller extends base
     protected function view_only($template)
     {
         $this->render('log', registry::get('log'));
-        $template_file = ROOT_DIR . 'templates' . DS . PROJECT . DS . $template . '.php';
+        $template_file = ROOT_DIR . 'templates' . DS . registry::get('language') . DS . PROJECT . DS . $template . '.php';
         if(!file_exists($template_file)) {
             throw new Exception('cannot find template in ' . $template_file);
         }

@@ -162,4 +162,37 @@ class users_controller extends controller
         $this->render('result', $result);
         $this->view('users' . DS . 'permissions');
     }
+
+    public function permissions_ajax()
+    {
+        switch($_REQUEST['action']) {
+            case "get_modules_permissions":
+                $permissions = [];
+                $tmp = $this->model('modules_user_groups_relations')->getAll();
+                foreach($tmp as $v) {
+                    $permissions[$v['user_group_id']][] = $v['modules_id'];
+                }
+                $tmp = $this->model('modules')->getAll();
+                $routes = [];
+                foreach($tmp as $v) {
+                    $routes[$v['id']] = $v;
+                }
+                $groups = $this->model('user_groups')->getAll();
+
+                $result = [];
+                foreach($groups as $v) {
+                    $result[$v['id']]['group_name'] = $v['group_name'];
+                    $result[$v['id']]['modules'] = $routes;
+                    foreach($result[$v['id']]['modules'] as $k => $route) {
+                        if(is_array($permissions[$v['id']]) && in_array($route['id'], $permissions[$v['id']])) {
+                            $result[$v['id']]['modules'][$k]['checked'] = true;
+                        }
+                    }
+                }
+                $this->render('result', $result);
+                $this->view_only('users' . DS . 'modules_permissions');
+                exit;
+                break;
+        }
+    }
 }

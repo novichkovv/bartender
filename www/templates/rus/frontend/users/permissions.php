@@ -22,7 +22,7 @@
                     </a>
                 </li>
                 <li>
-                    <a data-toggle="tab" href="#about-2">
+                    <a data-toggle="tab" href="#modules">
                         <i class="fa fa-user"></i>
                         Модули
                     </a>
@@ -93,10 +93,8 @@
                         </div>
                     </div>
                 </div>
-                <div id="about-2" class="tab-pane">
-                    <div class="pull-right">
-                        <a href="">users</a> | <a href="">permissions</a> | settings
-                    </div>
+                <div id="modules" class="tab-pane">
+
                 </div>
                 <div id="contact-2" class="tab-pane ">Contact</div>
             </div>
@@ -131,5 +129,17 @@
 //                }
             }
         });
+        $('[data-toggle="tab"]').click(function(){
+            var part = $(this).attr('href').substr(1);
+            var params = {
+                'action': 'get_' + part + '_permissions',
+                callback: function(msg) {
+                    $("#" + part).html(msg);
+                }
+            };
+            if(!$("#" + part).children().length) {
+                ajax(params);
+            }
+        })
     });
 </script>

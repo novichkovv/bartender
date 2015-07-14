@@ -67,6 +67,31 @@ class model
         return $this->get_all($stm);
     }
 
+    public function getAllLoc($field, $order = "", $limit = "", $show = false)
+    {
+        $stm = $this->pdo->prepare('
+        SELECT
+             t.*,
+             l.locale_value
+        FROM
+          ' . $this->table . ' t LEFT JOIN locale l ON l.locale_key = t.' . $field . '
+       AND l.locale_language = "' . registry::get('language') . '" AND l.locale_table = "' .$this->table . '"' .
+            ( $order ? ' ORDER BY ' . $order : '' ) .
+            ( $limit ? ' LIMIT ' . $limit : '' )
+        );
+        echo $stm->queryString;
+        $stm->execute();
+        $stm->setFetchMode(PDO::FETCH_ASSOC);
+        $res = array();
+        while($row = $stm->fetch()) {
+            $row[$field] = $row['locale_value'];
+            unset($row['locale_value']);
+            $res[] = $row;
+        }
+        if($show)echo $stm->queryString;
+        return $this->get_all($stm);
+    }
+
     /**
      * @return array
      */

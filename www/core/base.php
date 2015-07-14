@@ -66,4 +66,19 @@ class base
             return $value;
         }
     }
+
+    protected function getLocale($table, $key)
+    {
+        $row = array(
+            'language' => registry::get('language'),
+            'locale_key' => $key,
+            'locale_table' => $table
+        );
+        return $this->model('locale')->getByFields($row)['locale_value'];
+    }
+
+    protected function getAllLocale($table)
+    {
+
+    }
 }

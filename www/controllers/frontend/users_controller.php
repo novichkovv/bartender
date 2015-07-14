@@ -172,19 +172,19 @@ class users_controller extends controller
                 foreach($tmp as $v) {
                     $permissions[$v['user_group_id']][] = $v['modules_id'];
                 }
-                $tmp = $this->model('modules')->getAll();
-                $routes = [];
+                $tmp = $this->model('modules')->getAllLoc('module_name');
+                $modules = [];
                 foreach($tmp as $v) {
-                    $routes[$v['id']] = $v;
+                    $modules[$v['id']] = $v;
                 }
                 $groups = $this->model('user_groups')->getAll();
 
                 $result = [];
                 foreach($groups as $v) {
                     $result[$v['id']]['group_name'] = $v['group_name'];
-                    $result[$v['id']]['modules'] = $routes;
-                    foreach($result[$v['id']]['modules'] as $k => $route) {
-                        if(is_array($permissions[$v['id']]) && in_array($route['id'], $permissions[$v['id']])) {
+                    $result[$v['id']]['modules'] = $modules;
+                    foreach($result[$v['id']]['modules'] as $k => $module) {
+                        if(is_array($permissions[$v['id']]) && in_array($module['id'], $permissions[$v['id']])) {
                             $result[$v['id']]['modules'][$k]['checked'] = true;
                         }
                     }

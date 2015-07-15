@@ -166,7 +166,7 @@ abstract class controller extends base
             $permissions[$v['system_route_id']] = 1;
         }
         $sidebar = [];
-        $tmp = $this->model('system_routes')->getAll('position');
+        $tmp = $this->model('system_routes')->getAllLoc('title', 'position');
         $permit_page = false;
         foreach($tmp as $v) {
             if(!$v['parent']) {

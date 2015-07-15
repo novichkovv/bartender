@@ -131,7 +131,7 @@ class users_controller extends controller
         foreach($tmp as $v) {
             $permissions[$v['user_group_id']][] = $v['system_route_id'];
         }
-        $tmp = $this->model('system_routes')->getAll('position');
+        $tmp = $this->model('system_routes')->getAllLoc('title', 'position');
         $routes = [];
         foreach($tmp as $v) {
             if(!$v['parent']) {

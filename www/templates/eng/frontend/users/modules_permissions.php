@@ -23,6 +23,6 @@
 <hr class="hr-dark-blue">
 <div class="row">
     <div class="col-md-5">
-        <input class="btn btn-info btn-lg btn-big" type="submit" name="save_permissions_btn" value="Сохранить">
+        <input class="btn btn-info btn-lg btn-big" type="submit" name="save_permissions_btn" value="Save">
     </div>
 </div>

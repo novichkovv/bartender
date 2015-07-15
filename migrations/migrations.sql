@@ -59,3 +59,10 @@ INSERT INTO `bartender`.`modules` (`id`, `module_key`, `module_name`, `icon`, `i
 INSERT INTO `bartender`.`modules` (`id`, `module_key`, `module_name`, `icon`, `icon_color`) VALUES ('4', 'helper', 'Helper', 'fa fa-th', 'st-yellow');
 INSERT INTO `bartender`.`modules` (`id`, `module_key`, `module_name`, `icon`, `icon_color`) VALUES ('5', 'media', 'Media', 'fa fa-music', 'st-green');
 INSERT INTO `bartender`.`modules` (`id`, `module_key`, `module_name`, `icon`, `icon_color`) VALUES ('6', 'finance', 'Finance', 'fa fa-bar-chart-o', 'st-grey');
+
+INSERT INTO `bartender`.`locale` (`locale_table`, `locale_language`, `locale_key`, `locale_value`) VALUES ('modules', 'rus', 'Warehouse', 'Склад');
+INSERT INTO `bartender`.`locale` (`locale_table`, `locale_language`, `locale_key`, `locale_value`) VALUES ('modules', 'rus', 'Stuff', 'Персонал');
+INSERT INTO `bartender`.`locale` (`locale_table`, `locale_language`, `locale_key`, `locale_value`) VALUES ('modules', 'rus', 'Menu', 'Меню');
+INSERT INTO `bartender`.`locale` (`locale_table`, `locale_language`, `locale_key`, `locale_value`) VALUES ('modules', 'rus', 'Helper', 'Помощник');
+INSERT INTO `bartender`.`locale` (`locale_table`, `locale_language`, `locale_key`, `locale_value`) VALUES ('modules', 'rus', 'Media', 'Медиа');
+INSERT INTO `bartender`.`locale` (`locale_table`, `locale_language`, `locale_key`, `locale_value`) VALUES ('modules', 'rus', 'Finance', 'Финансы');

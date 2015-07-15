@@ -79,17 +79,19 @@ class model
             ( $order ? ' ORDER BY ' . $order : '' ) .
             ( $limit ? ' LIMIT ' . $limit : '' )
         );
-        echo $stm->queryString;
+        if($show)echo $stm->queryString;
         $stm->execute();
         $stm->setFetchMode(PDO::FETCH_ASSOC);
         $res = array();
         while($row = $stm->fetch()) {
-            $row[$field] = $row['locale_value'];
+            if ($row['locale_value']) {
+                $row[$field] = $row['locale_value'];
+            }
             unset($row['locale_value']);
             $res[] = $row;
         }
-        if($show)echo $stm->queryString;
-        return $this->get_all($stm);
+
+        return $res;
     }
 
     /**

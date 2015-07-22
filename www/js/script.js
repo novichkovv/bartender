@@ -28,10 +28,16 @@ var ajax = function ajax(params)
     params.values.action = params.action;
     if(params.get_from_form)
     {
-        $("#" + params.get_from_form + " input, #" + params.get_from_form + " textarea, #" + params.get_from_form + " select").each(function()
+        $("#" + params.get_from_form + " input:not([type='checkbox'],[type='radio']), #" + params.get_from_form + " textarea, #" + params.get_from_form + " select").each(function()
         {
             params.values[$(this).attr('name')] = $(this).val();
         });
+        $("#" + params.get_from_form + " input[type='checkbox']").each(function()
+        {
+            if($(this).prop('checked')) {
+                params.values[$(this).attr('name')] = $(this).val();
+            }
+        })
     }
     var res;
     $.ajax(

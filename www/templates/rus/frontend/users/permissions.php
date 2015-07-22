@@ -10,7 +10,6 @@
 </div>
 
 <br>
-<form method="post" action="">
 <div class="row transparent permissions-list">
     <section class="panel general transparent-tabs" style="background: none;">
         <header class="panel-heading tab-bg-dark-navy-blue">
@@ -43,55 +42,52 @@
         <div class="panel-body">
             <div class="tab-content" style="background: none;">
                 <div id="home-2" class="tab-pane  active">
-                    <div class="row">
-                         <div class="col-xs-12">
-                            <?php foreach($result as $user_group_id => $v): ?>
-                                <div class="col-md-3 col-sm-6">
-                                    <h3><?php echo $v['group_name']; ?></h3>
-                                    <ul style="">
-                                        <?php foreach($v['routes'] as $route): ?>
-                                            <li>
-                                                <div class="checkbox">
-                                                    <div class="squaredFour">
-                                                        <input type="checkbox" id="squaredFour_1_<?php echo $user_group_id; ?>_<?php echo $route['id']; ?>"  name="permission[<?php echo $user_group_id; ?>][]" value="<?php echo $route['id']; ?>" <?php if($route['checked']) echo 'checked'; ?> class="parent_perm styled-checkbox" checked>
-                                                        <label for="squaredFour_1_<?php echo $user_group_id; ?>_<?php echo $route['id']; ?>"></label>
+                    <form class="permissions_form" id="permissions_form_1">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <?php foreach($result as $user_group_id => $v): ?>
+                                    <div class="col-md-3 col-sm-6">
+                                        <h3><?php echo $v['group_name']; ?></h3>
+                                        <ul style="">
+                                            <?php foreach($v['routes'] as $route): ?>
+                                                <li>
+                                                    <div class="checkbox">
+                                                        <div class="squaredFour">
+                                                            <input type="checkbox" id="squaredFour_1_<?php echo $user_group_id; ?>_<?php echo $route['id']; ?>"  name="permission[1][<?php echo $user_group_id; ?>][<?php echo $route['id']; ?>]" value="<?php echo $route['id']; ?>" <?php if($route['checked']) echo 'checked'; ?> class="parent_perm styled-checkbox">
+                                                            <label for="squaredFour_1_<?php echo $user_group_id; ?>_<?php echo $route['id']; ?>"></label>
+                                                        </div>
+                                                        <span class="styled-checkbox-label"><?php echo $route['title']; ?></span>
                                                     </div>
-                                                    <span class="styled-checkbox-label"><?php echo $route['title']; ?></span>
-                                                </div>
-                                                <!--                        <label class="checkbox">-->
-                                                <!--                            <input type="checkbox" class="parent_perm" name="permission[--><?php //echo $user_group_id; ?><!--][]" value="--><?php //echo $route['id']; ?><!--" --><?php //if($route['checked']) echo 'checked'; ?><!-->
-                                                <!--                            --><?php //echo $route['title']; ?>
-                                                <!--                        </label>-->
-                                                <?php if($route['children']): ?>
-                                                    <ul>
-                                                        <?php foreach($route['children'] as $child): ?>
-                                                            <li>
-                                                                <div class="checkbox">
-                                                                    <div class="squaredFour">
-                                                                        <input type="checkbox" id="squaredFour_1_<?php echo $user_group_id; ?>_<?php echo $child['id']; ?>"  name="permission[<?php echo $user_group_id; ?>][]" value="<?php echo $child['id']; ?>" <?php if($child['checked']) echo 'checked'; ?> class="child_perm styled-checkbox" checked>
-                                                                        <label for="squaredFour_1_<?php echo $user_group_id; ?>_<?php echo $child['id']; ?>"></label>
+                                                    <?php if($route['children']): ?>
+                                                        <ul>
+                                                            <?php foreach($route['children'] as $child): ?>
+                                                                <li>
+                                                                    <div class="checkbox">
+                                                                        <div class="squaredFour">
+                                                                            <input type="checkbox" id="squaredFour_1_<?php echo $user_group_id; ?>_<?php echo $child['id']; ?>"  name="permission[1][<?php echo $user_group_id; ?>][<?php echo $child['id']; ?>]" value="<?php echo $child['id']; ?>" <?php if($child['checked']) echo 'checked'; ?> class="child_perm styled-checkbox">
+                                                                            <label for="squaredFour_1_<?php echo $user_group_id; ?>_<?php echo $child['id']; ?>"></label>
+                                                                        </div>
+                                                                        <span class="styled-checkbox-label"><?php echo $child['title']; ?></span>
                                                                     </div>
-                                                                    <span class="styled-checkbox-label"><?php echo $child['title']; ?></span>
-                                                                </div>
-                                                                <!--                                        <input type="checkbox" class="child_perm" name="permission[--><?php //echo $user_group_id; ?><!--][]" value="--><?php //echo $child['id']; ?><!--" --><?php //if($child['checked']) echo 'checked'; ?><!-->
-                                                                <!--                                        --><?php //echo $child['title']; ?>
-                                                            </li>
-                                                        <?php endforeach; ?>
-                                                    </ul>
-                                                <?php endif; ?>
-                                            </li>
-                                        <?php endforeach; ?>
-                                    </ul>
-                                </div>
-                            <?php endforeach; ?>
+                                                                </li>
+                                                            <?php endforeach; ?>
+                                                        </ul>
+                                                    <?php endif; ?>
+                                                </li>
+                                            <?php endforeach; ?>
+                                        </ul>
+                                    </div>
+                                <?php endforeach; ?>
+                            </div>
                         </div>
-                    </div>
-                    <hr class="hr-dark-blue">
-                    <div class="row">
-                        <div class="col-md-5">
-                            <input class="btn btn-info btn-lg btn-big" type="submit" name="save_permissions_btn" value="Сохранить">
+                        <hr class="hr-dark-blue">
+                        <div class="row">
+                            <div class="col-md-5">
+                                <input class="btn btn-info btn-lg btn-big" type="submit" name="save_permissions_btn" value="Сохранить">
+                            </div>
                         </div>
-                    </div>
+                    </form>
+
                 </div>
                 <div id="modules" class="tab-pane">
 
@@ -104,8 +100,6 @@
 
     </div>
 </div>
-
-</form>
 <script type="text/javascript">
     $ = jQuery.noConflict();
     $(document).ready(function(){
@@ -140,6 +134,30 @@
             if(!$("#" + part).children().length) {
                 ajax(params);
             }
-        })
+        });
+        $("body").on("submit", ".permissions_form", function(e)
+        {
+            e.preventDefault();
+            var form_id = $(this).attr('id');
+            var params = {
+                action: 'save_permission',
+                get_from_form: form_id,
+                callback: function(msg) {
+                    try {
+                        var respond = JSON.parse(msg);
+                    }
+                    catch (e) {
+                        Notifier.error('Неудалось сохранить', 'Непредвиденная ошибка!');
+                        return false;
+                    }
+                    if (respond.status == 1) {
+                        Notifier.success('Данные сохранены!', 'Успешно');
+                    } else {
+                        Notifier.error('Неудалось сохранить', 'Непредвиденная ошибка!');
+                    }
+                }
+            };
+            ajax(params);
+        });
     });
 </script>

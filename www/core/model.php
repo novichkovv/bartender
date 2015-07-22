@@ -39,6 +39,33 @@ class model
 
     /**
      * @param PDOStatement $stm
+     * @param string $field
+     * @param array $data
+     * @param bool $assoc
+     * @return array
+     */
+
+    protected function get_all_loc(PDOStatement $stm, $field, array $data = array(), $assoc = true)
+    {
+        ($data ? $stm->execute($data) : $stm->execute());
+        if($assoc) {
+            $stm->setFetchMode(PDO::FETCH_ASSOC);
+        } else {
+            $stm->setFetchMode(PDO::FETCH_NUM);
+        }
+        $res = array();
+        while($row = $stm->fetch()) {
+            if ($row['locale_value']) {
+                $row[$field] = $row['locale_value'];
+            }
+            unset($row['locale_value']);
+            $res[] = $row;
+        }
+        return $res;
+    }
+
+    /**
+     * @param PDOStatement $stm
      * @param array $data
      * @return array
      */
@@ -106,7 +133,6 @@ class model
 
     /**
      * @param array $row
-     * @param string $field
      * @param bool $show
      * @return int
      */

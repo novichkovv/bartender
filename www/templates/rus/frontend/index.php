@@ -58,78 +58,93 @@
 
 <script type="text/javascript" src="<?php echo SITE_DIR; ?>js/frontend/libs/gridstack.min.js"></script>
 <div class="grid-stack" data-gs-width="3" style="width: 400%;">
-    <a href="" class="grid-stack-item big-button" data-gs-no-resize="1"
-         data-gs-x="0" data-gs-y="0"
-         data-gs-width="1" data-gs-height="1">
-        <div class="pull-right big-button-close"><i class="fa fa-times"></i></div>
-        <div class="grid-stack-item-content sm-st clearfix">
-            <span class="sm-st-icon st-red"><i class="fa fa-exchange"></i></span>
-            <div class="sm-st-info">
-                <span>СКЛАД</span>
-            </div>
-        </div>
-    </a>
-
-    <a href="<?php echo SITE_DIR; ?>" class="grid-stack-item big-button" data-gs-no-resize="1"
-         data-gs-x="1" data-gs-y="0"
-         data-gs-width="1" data-gs-height="1">
-        <div class="grid-stack-item-content sm-st clearfix">
-            <div class="">
-                <span class="sm-st-icon st-violet"><i class="fa fa-calendar-o"></i></span>
-                <div class="sm-st-info">
-                    <span>МЕНЮ</span>
+    <?php if ($modules): ?>
+        <?php foreach ($modules as $module): ?>
+            <a href="" class="grid-stack-item big-button" id="module_<?php echo $module['id']; ?>" data-gs-no-resize="1"
+               data-gs-x="<?php echo $module['x_position']; ?>" data-gs-y="<?php echo $module['y_position']; ?>"
+               data-gs-width="1" data-gs-height="1">
+                <div class="pull-right big-button-close"><i class="fa fa-times"></i></div>
+                <div class="grid-stack-item-content sm-st clearfix">
+                    <span class="sm-st-icon <?php echo $module['icon_color']; ?>"><i class="<?php echo $module['icon']; ?>"></i></span>
+                    <div class="sm-st-info">
+                        <span><?php echo $module['module_name']; ?></span>
+                    </div>
                 </div>
-            </div>
-        </div>
-    </a>
-    <a href="<?php echo SITE_DIR; ?>" class="grid-stack-item big-button" data-gs-no-resize="1"
-         data-gs-x="2" data-gs-y="0"
-         data-gs-width="1" data-gs-height="1">
-        <div class="grid-stack-item-content sm-st clearfix">
-            <div class="">
-                <span class="sm-st-icon st-blue"><i class="fa fa-user"></i></span>
-                <div class="sm-st-info">
-                    <span>ПЕРСОНАЛ</span>
-                </div>
-            </div>
-        </div>
-    </a>
-    <a href="<?php echo SITE_DIR; ?>" class="grid-stack-item big-button" data-gs-no-resize="1"
-         data-gs-x="0" data-gs-y="1"
-         data-gs-width="1" data-gs-height="1">
-        <div class="grid-stack-item-content sm-st clearfix">
-            <div class="">
-                <span class="sm-st-icon st-yellow"><i class="fa fa-th"></i></span>
-                <div class="sm-st-info">
-                    <span>ПОМОЩНИК</span>
-                </div>
-            </div>
-        </div>
-    </a>
-    <a href="<?php echo SITE_DIR; ?>" class="grid-stack-item big-button" data-gs-no-resize="1"
-         data-gs-x="1" data-gs-y="1"
-         data-gs-width="1" data-gs-height="1">
-        <div class="grid-stack-item-content sm-st clearfix">
-            <div class="">
-                <span class="sm-st-icon st-grey"><i class="fa fa-bar-chart-o"></i></span>
-                <div class="sm-st-info">
-                    <span>ФИНАНСЫ</span>
-                </div>
-            </div>
-        </div>
-    </a>
-    <a href="<?php echo SITE_DIR; ?>" class="grid-stack-item big-button" data-gs-no-resize="1"
-         data-gs-x="2" data-gs-y="1"
-         data-gs-width="1" data-gs-height="1">
-        <div class="grid-stack-item-content sm-st clearfix">
-            <div class="">
-                <span class="sm-st-icon st-green"><i class="fa fa-music"></i></span>
-                <div class="sm-st-info">
-                    <span>МЕДИА</span>
-                </div>
-            </div>
-        </div>
-    </a>
+            </a>
+        <?php endforeach; ?>
+    <?php endif; ?>
+<!--    <a href="" class="grid-stack-item big-button" data-gs-no-resize="1"-->
+<!--         data-gs-x="0" data-gs-y="0"-->
+<!--         data-gs-width="1" data-gs-height="1">-->
+<!--        <div class="pull-right big-button-close"><i class="fa fa-times"></i></div>-->
+<!--        <div class="grid-stack-item-content sm-st clearfix">-->
+<!--            <span class="sm-st-icon st-red"><i class="fa fa-exchange"></i></span>-->
+<!--            <div class="sm-st-info">-->
+<!--                <span>СКЛАД</span>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </a>-->
+<!---->
+<!--    <a href="--><?php //echo SITE_DIR; ?><!--" class="grid-stack-item big-button" data-gs-no-resize="1"-->
+<!--         data-gs-x="1" data-gs-y="0"-->
+<!--         data-gs-width="1" data-gs-height="1">-->
+<!--        <div class="grid-stack-item-content sm-st clearfix">-->
+<!--            <div class="">-->
+<!--                <span class="sm-st-icon st-violet"><i class="fa fa-calendar-o"></i></span>-->
+<!--                <div class="sm-st-info">-->
+<!--                    <span>МЕНЮ</span>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </a>-->
+<!--    <a href="--><?php //echo SITE_DIR; ?><!--" class="grid-stack-item big-button" data-gs-no-resize="1"-->
+<!--         data-gs-x="2" data-gs-y="0"-->
+<!--         data-gs-width="1" data-gs-height="1">-->
+<!--        <div class="grid-stack-item-content sm-st clearfix">-->
+<!--            <div class="">-->
+<!--                <span class="sm-st-icon st-blue"><i class="fa fa-user"></i></span>-->
+<!--                <div class="sm-st-info">-->
+<!--                    <span>ПЕРСОНАЛ</span>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </a>-->
+<!--    <a href="--><?php //echo SITE_DIR; ?><!--" class="grid-stack-item big-button" data-gs-no-resize="1"-->
+<!--         data-gs-x="0" data-gs-y="1"-->
+<!--         data-gs-width="1" data-gs-height="1">-->
+<!--        <div class="grid-stack-item-content sm-st clearfix">-->
+<!--            <div class="">-->
+<!--                <span class="sm-st-icon st-yellow"><i class="fa fa-th"></i></span>-->
+<!--                <div class="sm-st-info">-->
+<!--                    <span>ПОМОЩНИК</span>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </a>-->
+<!--    <a href="--><?php //echo SITE_DIR; ?><!--" class="grid-stack-item big-button" data-gs-no-resize="1"-->
+<!--         data-gs-x="1" data-gs-y="1"-->
+<!--         data-gs-width="1" data-gs-height="1">-->
+<!--        <div class="grid-stack-item-content sm-st clearfix">-->
+<!--            <div class="">-->
+<!--                <span class="sm-st-icon st-grey"><i class="fa fa-bar-chart-o"></i></span>-->
+<!--                <div class="sm-st-info">-->
+<!--                    <span>ФИНАНСЫ</span>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </a>-->
+<!--    <a href="--><?php //echo SITE_DIR; ?><!--" class="grid-stack-item big-button" data-gs-no-resize="1"-->
+<!--         data-gs-x="2" data-gs-y="1"-->
+<!--         data-gs-width="1" data-gs-height="1">-->
+<!--        <div class="grid-stack-item-content sm-st clearfix">-->
+<!--            <div class="">-->
+<!--                <span class="sm-st-icon st-green"><i class="fa fa-music"></i></span>-->
+<!--                <div class="sm-st-info">-->
+<!--                    <span>МЕДИА</span>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </a>-->
 </div>
 
 <script type="text/javascript">
@@ -142,9 +157,33 @@
                 animate: true,
                 //float: true,
                 width: 3,
-                min_width: 1000
+                min_width: 1000,
+                onchange: function(items) {
+                    console.log(items);
+                }
             };
             $('.grid-stack').gridstack(options);
+            $('.grid-stack').on('change', function (e, items) {
+                console.log(items);
+                var positions = new Object();
+                var res;
+                for(var i in items) {
+                    var module_id = items[i].el.context.id.substr(7);
+                    res = {
+                        'x_position': items[i].x,
+                        'y_position': items[i].y
+                    };
+                    positions[module_id] = res;
+                }
+                var params = {
+                    action: 'save_modules_position',
+                    values: {'positions': positions},
+                    callback: function(msg) {
+
+                    }
+                };
+                ajax(params);
+            });
         });
 
         $(".big-button-close").click(function(e)

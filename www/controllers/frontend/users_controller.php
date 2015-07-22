@@ -170,7 +170,7 @@ class users_controller extends controller
                 $permissions = [];
                 $tmp = $this->model('modules_user_groups_relations')->getAll();
                 foreach($tmp as $v) {
-                    $permissions[$v['user_group_id']][] = $v['modules_id'];
+                    $permissions[$v['user_group_id']][] = $v['module_id'];
                 }
                 $tmp = $this->model('modules')->getAllLoc('module_name');
                 $modules = [];
@@ -190,7 +190,36 @@ class users_controller extends controller
                     }
                 }
                 $this->render('result', $result);
-                $this->view_only('users' . DS . 'modules_permissions');
+                $this->view_only('users' . DS . 'ajax' . DS . 'modules_permissions');
+                exit;
+                break;
+
+            case "save_permission":
+                switch($key = array_keys($_POST['permission'])[0]) {
+                    case "1":
+                        $part = 'system_route';
+                        break;
+                    case "2":
+                        $part = 'module';
+                        break;
+                }
+                //echo $part . 's_user_groups_relations';
+                $this->model($part . 's_user_groups_relations')->deleteAll();
+                if (isset($part)) {
+                    foreach ($_POST['permission'][$key] as $user_group_id => $routes) {
+                        if ($routes) {
+                            foreach ($routes as $system_route_id) {
+                                $row = [];
+                                $row['user_group_id'] = $user_group_id;
+                                $row[$part . '_id'] = $system_route_id;
+                                $this->model($part . 's_user_groups_relations')->insert($row);
+                            }
+                        }
+                    }
+                    echo json_encode(array('status' => 1));
+                } else {
+                    echo json_encode(array('status' => 2));
+                }
                 exit;
                 break;
         }

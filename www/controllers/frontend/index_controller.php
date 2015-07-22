@@ -9,7 +9,18 @@ class index_controller extends controller
 {
     public function index()
     {
+        $this->render('modules', $this->model('modules')->getGroupModel());
         $this->view('index');
+    }
+
+    public function index_ajax()
+    {
+        switch($_REQUEST['action']) {
+            case "save_modules_position":
+                $this->model('modules')->savePositions($_POST['positions']);
+                exit;
+                break;
+        }
     }
 
     public function index_na()

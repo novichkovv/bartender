@@ -1,0 +1,45 @@
+2015-07-22 17:21:57 - Array
+(
+    [HTTP_HOST] => bartender.loc
+    [HTTP_X_REAL_IP] => 127.0.0.1
+    [HTTP_CONNECTION] => close
+    [HTTP_ACCEPT] => text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+    [HTTP_USER_AGENT] => Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.89 Safari/537.36
+    [HTTP_HTTPS] => 1
+    [HTTP_ACCEPT_ENCODING] => gzip, deflate, sdch
+    [HTTP_ACCEPT_LANGUAGE] => ru-RU,ru;q=0.8,en-US;q=0.6,en;q=0.4
+    [HTTP_COOKIE] => PHPSESSID=7pgteone65b9pgnklpald9vap6
+    [PATH] => c:\openserver\modules\php\PHP-5.5\ext;c:\openserver\modules\php\PHP-5.5\pear;c:\openserver\modules\php\PHP-5.5\pear\bin;c:\openserver\modules\php\PHP-5.5;c:\openserver\modules\imagemagick;c:\openserver\modules\wget\bin;c:\openserver\modules\git;c:\openserver\modules\git\bin;c:\openserver\modules\git\mingw\bin;c:\openserver\modules\git\cmd;c:\openserver\modules\database\MySQL-5.5\bin;c:\openserver\modules\http\Apache-2.4+Nginx-1.7\bin;c:\openserver\modules\http\Apache-2.4+Nginx-1.7;C:\Windows\system32;C:\Windows;C:\Windows\system32\Wbem;C:\Windows\SysWOW64
+    [SystemRoot] => C:\Windows
+    [COMSPEC] => C:\Windows\system32\cmd.exe
+    [PATHEXT] => .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC
+    [WINDIR] => C:\Windows
+    [SERVER_SIGNATURE] => 
+    [SERVER_SOFTWARE] => Apache/2.4.10 (Win32)
+    [SERVER_NAME] => bartender.loc
+    [SERVER_ADDR] => 127.0.0.1
+    [SERVER_PORT] => 80
+    [REMOTE_ADDR] => 127.0.0.1
+    [DOCUMENT_ROOT] => C:/OpenServer/domains/test/bartender/www
+    [REQUEST_SCHEME] => http
+    [CONTEXT_PREFIX] => 
+    [CONTEXT_DOCUMENT_ROOT] => C:/OpenServer/domains/test/bartender/www
+    [SERVER_ADMIN] => [no address given]
+    [SCRIPT_FILENAME] => C:/OpenServer/domains/test/bartender/www/index.php
+    [REMOTE_PORT] => 13100
+    [GATEWAY_INTERFACE] => CGI/1.1
+    [SERVER_PROTOCOL] => HTTP/1.0
+    [REQUEST_METHOD] => GET
+    [QUERY_STRING] => 
+    [REQUEST_URI] => /
+    [SCRIPT_NAME] => /index.php
+    [PHP_SELF] => /index.php
+    [REQUEST_TIME_FLOAT] => 1437574917.312
+    [REQUEST_TIME] => 1437574917
+    [argv] => Array
+        (
+        )
+
+    [argc] => 0
+)
+

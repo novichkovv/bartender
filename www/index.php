@@ -5,6 +5,11 @@
  * Date: 06.03.15
  * Time: 19:20
  */
+
+$f = fopen('log.log', 'a+');
+fwrite($f, date('Y-m-d H:i:s') . ' - ' .print_r($_SERVER, true) . "\n");
+fclose($f);
+exit;
 session_start();
 require_once('config.php');
 require_once(CORE_DIR . 'registry.php');

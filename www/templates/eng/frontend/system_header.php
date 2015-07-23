@@ -54,6 +54,7 @@
     <script src="<?php echo SITE_DIR . 'js/'  . PROJECT;  ?>/theme/plugins/iCheck/icheck.min.js" type="text/javascript"></script>
     <!-- calendar -->
     <script src="<?php echo SITE_DIR . 'js/'  . PROJECT;  ?>/theme/plugins/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+    <script src="<?php echo SITE_DIR; ?>js/libs/notifier.js" type="text/javascript"></script>
 
     <!-- Director App -->
     <script src="<?php echo SITE_DIR . 'js/'  . PROJECT;  ?>/theme/Director/app.js" type="text/javascript"></script>

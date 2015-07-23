@@ -66,3 +66,30 @@ INSERT INTO `bartender`.`locale` (`locale_table`, `locale_language`, `locale_key
 INSERT INTO `bartender`.`locale` (`locale_table`, `locale_language`, `locale_key`, `locale_value`) VALUES ('modules', 'rus', 'Helper', 'Помощник');
 INSERT INTO `bartender`.`locale` (`locale_table`, `locale_language`, `locale_key`, `locale_value`) VALUES ('modules', 'rus', 'Media', 'Медиа');
 INSERT INTO `bartender`.`locale` (`locale_table`, `locale_language`, `locale_key`, `locale_value`) VALUES ('modules', 'rus', 'Finance', 'Финансы');
+
+UPDATE `bartender`.`system_routes` SET `route`='settings', `title`='Settings' WHERE `id`='1';
+UPDATE `bartender`.`system_routes` SET `title`='Users' WHERE `id`='2';
+UPDATE `bartender`.`system_routes` SET `title`='User List' WHERE `id`='3';
+UPDATE `bartender`.`system_routes` SET `title`='Add User' WHERE `id`='4';
+UPDATE `bartender`.`system_routes` SET `title`='User Group' WHERE `id`='5';
+UPDATE `bartender`.`system_routes` SET `title`='Add Group' WHERE `id`='6';
+UPDATE `bartender`.`system_routes` SET `title`='Group Permissions' WHERE `id`='7';
+
+INSERT INTO `bartender`.`locale` (`locale_table`, `locale_language`, `locale_key`, `locale_value`) VALUES ('system_routes', 'rus', 'Settings', 'Настройки');
+INSERT INTO `bartender`.`locale` (`locale_table`, `locale_language`, `locale_key`, `locale_value`) VALUES ('system_routes', 'rus', 'Users', 'Пользователи');
+INSERT INTO `bartender`.`locale` (`locale_table`, `locale_language`, `locale_key`, `locale_value`) VALUES ('system_routes', 'rus', 'User List', 'Список пользователей');
+INSERT INTO `bartender`.`locale` (`locale_table`, `locale_language`, `locale_key`, `locale_value`) VALUES ('system_routes', 'rus', 'Add User', 'Добавить пользователя');
+INSERT INTO `bartender`.`locale` (`locale_table`, `locale_language`, `locale_key`, `locale_value`) VALUES ('system_routes', 'rus', 'User Group', 'Группы пользователей');
+INSERT INTO `bartender`.`locale` (`locale_table`, `locale_language`, `locale_key`, `locale_value`) VALUES ('system_routes', 'rus', 'Add Group', 'Добавить группу');
+INSERT INTO `bartender`.`locale` (`locale_table`, `locale_language`, `locale_key`, `locale_value`) VALUES ('system_routes', 'rus', 'Group Permissions', 'Групповые права');
+
+UPDATE `bartender`.`system_routes` SET `icon`='fa fa-gear' WHERE `id`='1';
+
+CREATE TABLE `system_config` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `config_key` varchar(255) NOT NULL,
+  `config_value` varchar(255) NOT NULL,
+  UNIQUE KEY `id` (`id`),
+  UNIQUE KEY `config_key` (`config_key`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+

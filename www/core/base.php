@@ -58,7 +58,7 @@ class base
         }
         if(!$value = registry::get('config')[$key]) {
             $config = registry::get('config');
-            $config[$key] = $this->model('user_config')->getByField('config_key', $key)['config_value'];
+            $config[$key] = $this->model('system_config')->getByField('config_key', $key)['config_value'];
             registry::remove('config');
             registry::set('config', $key);
             return $config[$key];

@@ -34,7 +34,6 @@ class modules_model extends model
         foreach ($positions as $module_id => $data) {
             $data['module_id'] = $module_id;
             $data['user_group_id'] = registry::get('user')['user_group_id'];
-            echo $stm->getQuery($data);
             $stm->execute($data);
         }
     }

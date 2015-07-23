@@ -60,7 +60,7 @@
 <div class="grid-stack" data-gs-width="3" style="width: 400%;">
     <?php if ($modules): ?>
         <?php foreach ($modules as $module): ?>
-            <a href="" class="grid-stack-item big-button" id="module_<?php echo $module['id']; ?>" data-gs-no-resize="1"
+            <a href="" class="grid-stack-item big-button" id="module_<?php echo $module['module_id']; ?>" data-gs-no-resize="1"
                data-gs-x="<?php echo $module['x_position']; ?>" data-gs-y="<?php echo $module['y_position']; ?>"
                data-gs-width="1" data-gs-height="1">
                 <div class="pull-right big-button-close"><i class="fa fa-times"></i></div>

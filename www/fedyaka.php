@@ -15,7 +15,7 @@
         <input type="submit" name="show">
     </form>
     <div style="width: 100%;">
-        <?php if($_POST['show']): ?>
+        <?php if(isset($_POST['show'])): ?>
             <?php foreach($_POST['x'] as $k => $width): ?>
                 <div style="margin: 1%; float: left; height: 100px; background-color: #63adc5; width: <?php echo (10 * $width - 1*$width); ?>%">
                     <h1 style="text-align: center; margin-top: 20px;"><?php echo $k; ?></h1>

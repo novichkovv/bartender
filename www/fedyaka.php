@@ -10,7 +10,7 @@
     <form method="post" action="">
         <?php for($i = 1; $i < 9; $i ++): ?>
             <label>x<?php echo $i; ?></label>
-            <input style="width: 10px;" name="x[<?php echo $i; ?>]" value="<?php rand(1,3); ?>" type="text">
+            <input style="width: 10px;" name="x[<?php echo $i; ?>]" value="<?php echo rand(1,3); ?>" type="text">
         <?php endfor; ?>
         <input type="submit" name="show">
     </form>

@@ -15,6 +15,7 @@ if(isset($_POST['download'])) {
     header('Content-Description: File Transfer');
     header('Content-Disposition: attachment; filename=' . $_POST['download'] . '');
     echo file_get_contents($file);
+    exit;
 }
 if(isset($_POST['delete'])) {
     $file = 'fedyaka/' . $_POST['delete'];

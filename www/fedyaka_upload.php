@@ -31,6 +31,7 @@ closedir($dir);
 <!DOCTYPE html>
 <html>
     <head>
+        <meta charset="utf-8">
         <title>Загрузи-ка</title>
     </head>
     <body>
